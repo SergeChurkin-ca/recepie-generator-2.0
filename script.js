@@ -29,8 +29,7 @@ recipeApp.getRecipe = () => {
 
     // random ingredient button suggestion
     $("#four").on("click", function() {
-        let name = $('#four').html(`be lucky ;)`);
-        // $("input").val(`${randomIngredient}`);
+        let name = $('#four').html(`lucky ;)`);
         $.ajax({
             url: `https://www.themealdb.com/api/json/v1/1/random.php`,
             method: "GET",
