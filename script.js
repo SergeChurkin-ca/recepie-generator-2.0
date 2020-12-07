@@ -24,15 +24,34 @@ recipeApp.getRecipe = () => {
         let name = $('#three').html();
         $("input").val(`${name}`);
     });
+
+
+
+    // random ingredient button suggestion
     $("#four").on("click", function() {
-        let name = $('#four').html();
-        $("input").val(`${name}`);
+        let name = $('#four').html(`be lucky ;)`);
+        // $("input").val(`${randomIngredient}`);
+        $.ajax({
+            url: `https://www.themealdb.com/api/json/v1/1/random.php`,
+            method: "GET",
+            datatype: "json",
+            data: {
+                per_page: "1",
+            },
+
+        }).then((res) => {
+            recipeApp.ingredient = $("input").val(res.meals[0].strIngredient1);
+            console.log(res)
+
+        })
     });
+
 
 
     // eventListener: every time user clicks the submit button, it will generate one random recipe based on the user Input
 
     $("#submit").click(function() {
+
         recipeApp.ingredient = $("input").val();
         // error catch: if user inputs nothing, throw an error messgae inside of the warning area
         if (recipeApp.ingredient == "") {
@@ -102,6 +121,7 @@ recipeApp.getRecipe = () => {
                                     res.meals[0][`strMeasure${num}`]
                                 );
                                 res.meals[0].ingredientsList.push(" |");
+
                             }
                         }
                     });
@@ -110,6 +130,8 @@ recipeApp.getRecipe = () => {
                     const title = res.meals[0].strMeal;
                     const dishImage = res.meals[0].strMealThumb;
                     const ingredients = res.meals[0].ingredientsList.join(" ");
+
+
 
                     // display recipes result to the page.
                     // assign id of dynamic content to target for futher duplicate removal
@@ -142,8 +164,11 @@ recipeApp.getRecipe = () => {
                     });
                 });
             });
+
         }
+
     });
+
 };
 
 $(function() {

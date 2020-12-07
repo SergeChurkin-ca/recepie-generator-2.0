@@ -7,15 +7,6 @@
 
 body {
     font-family: 'Chilanka', cursive;
-}
-
-.wrapper {
-    max-width: 1200px;
-    width: 80%;
-    margin: 0 auto;
-}
-
-body {
     // this is just random placeholder image related to food
     background-image: url(https://source.unsplash.com/random/1200×900/?cooking);
     background-repeat: no-repeat;
@@ -23,6 +14,12 @@ body {
     background-size: cover;
     height: 100%;
     background-attachment: fixed;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 h1 {
