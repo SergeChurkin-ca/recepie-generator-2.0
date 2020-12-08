@@ -11,11 +11,23 @@
     h2 {
         width: 100%;
         margin: 0;
-        padding: 1em 0;
+        padding: 1em 1em;
+    }
+    #checkbox-content {
+        top: 3em;
+        left: 78%;
     }
 }
 
 @media(max-width: 700px) {
+    button {
+        z-index: 1;
+        min-width: 100px;
+    }
+    .content .wrapper {
+        margin: -5em auto -1em;
+        height: auto;
+    }
     .wrapper,
     li {
         padding: 0;
@@ -25,6 +37,9 @@
     .wrapper p {
         padding: 0;
         width: 100%;
+    }
+    h2 {
+        pad: 1em 0.3em;
     }
     h3 {
         padding: 1em;
@@ -44,5 +59,8 @@
     button {
         width: 30%;
         font-size: 15px;
+    }
+    #checkbox-content {
+        left: 70%;
     }
 }

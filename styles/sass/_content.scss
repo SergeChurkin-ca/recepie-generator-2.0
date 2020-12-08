@@ -8,8 +8,14 @@
 }
 
 .content .wrapper {
+    // background-color: white;
+    padding: 1em 0;
+}
+
+.content h3,
+ul,
+.recipeWrapper {
     background-color: white;
-    padding: 0;
 }
 
 // this wrapper of inner dynamic section of recipe and image
@@ -35,6 +41,7 @@ li {
 h2 {
     text-align: center;
     background-color: #39CCCC;
+    margin-top: -5em;
 }
 
 p {

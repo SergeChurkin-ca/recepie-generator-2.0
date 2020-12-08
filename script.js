@@ -27,6 +27,7 @@ recipeApp.getRecipe = () => {
 
 
 
+
     // random ingredient button suggestion
     $("#four").on("click", function() {
         let name = $('#four').html(`lucky ;)`);
@@ -131,23 +132,30 @@ recipeApp.getRecipe = () => {
                     const ingredients = res.meals[0].ingredientsList.join(" ");
 
 
-
                     // display recipes result to the page.
                     // assign id of dynamic content to target for futher duplicate removal
                     $(".content").prepend(`
                             <div class="wrapper" id="${title}">
-                                <h2 class>${title}</h2>
-                                <h3>Ingredients:</h3>
-                                <ul>
-                                    <li>${ingredients}</li>
-                                </ul>
-                                <h3>Directions</h3>
-                                <div class="recipeWrapper">
-                                    <p>${recipe}</p>
-                                    <img src="${dishImage}" alt="picture of ${title}">
-                                </div>
+                             <input type="checkbox" id="checkbox-content">
+                                <h2 class="title">${title} 
+                                </h2>
+                                    <div class="content">
+                                        <section>
+                                        <h3>Ingredients:</h3>
+                                        <ul>
+                                            <li>${ingredients}</li>
+                                        </ul>
+                                        <h3>Directions</h3>
+                                        <div class="recipeWrapper">
+                                            <p>${recipe}</p>
+                                            <img src="${dishImage}" alt="picture of ${title}">
+                                        </div>
+                                        </section>
+                                    </div>
                             </div>
+                            
                         `);
+
                     console.log(title);
                     // change text on submit button
                     $(".submit").text("more");
@@ -169,6 +177,9 @@ recipeApp.getRecipe = () => {
     });
 
 };
+
+
+
 
 $(function() {
     recipeApp.getRecipe();

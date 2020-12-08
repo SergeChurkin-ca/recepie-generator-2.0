@@ -314,7 +314,7 @@ button {
   border: solid 1px;
   border-radius: 0.2em;
   padding: 0.3em;
-  background-color: #2c2c0f;
+  background-color: lightgoldenrodyellow;
 }
 
 input {
@@ -401,8 +401,13 @@ h4 {
 }
 
 .content .wrapper {
+  padding: 1em 0;
+}
+
+.content h3,
+ul,
+.recipeWrapper {
   background-color: white;
-  padding: 0;
 }
 
 .recipeWrapper {
@@ -427,6 +432,7 @@ li {
 h2 {
   text-align: center;
   background-color: #39CCCC;
+  margin-top: -5em;
 }
 
 p {
@@ -445,6 +451,50 @@ img {
   flex: 1 1 300px;
 }
 
+input[type=checkbox] ~ .content {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#checkbox-content {
+  position: relative;
+  height: 3em;
+  opacity: 0;
+  top: -1em;
+  left: 85%;
+  width: 3em;
+}
+
+.title,
+input {
+  cursor: pointer;
+}
+
+.title:hover,
+input:hover + .title {
+  background-color: #229191;
+  z-index: 1;
+}
+
+input[type=checkbox] ~ h2::after {
+  content: "-";
+  float: right;
+  text-shadow: 2px 2px 2px grey;
+}
+
+input[type=checkbox]:checked ~ h2::after {
+  content: '+';
+  float: right;
+}
+
+input[type=checkbox]:checked ~ .content {
+  visibility: none;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  height: 0em;
+}
+
 @media (max-width: 1024px) {
   input {
     width: 60%;
@@ -458,11 +508,23 @@ img {
   h2 {
     width: 100%;
     margin: 0;
-    padding: 1em 0;
+    padding: 1em 1em;
+  }
+  #checkbox-content {
+    top: 3em;
+    left: 78%;
   }
 }
 
 @media (max-width: 700px) {
+  button {
+    z-index: 1;
+    min-width: 100px;
+  }
+  .content .wrapper {
+    margin: -5em auto -1em;
+    height: auto;
+  }
   .wrapper,
   li {
     padding: 0;
@@ -472,6 +534,9 @@ img {
   .wrapper p {
     padding: 0;
     width: 100%;
+  }
+  h2 {
+    pad: 1em 0.3em;
   }
   h3 {
     padding: 1em;
@@ -491,6 +556,9 @@ img {
   button {
     width: 30%;
     font-size: 15px;
+  }
+  #checkbox-content {
+    left: 70%;
   }
 }
 
